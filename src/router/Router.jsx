@@ -2,10 +2,14 @@ import { Switch, Route } from "react-router-dom";
 import { Home } from "../home";
 import { PageOneRoutes } from "./PageOneRoutes";
 import { PageTwoRoutes } from "./PageTwoRoutes";
+import { Page404 } from "../page404";
 
 export const Router = () => {
   return (
     <Switch>
+      <Route exact path="/">
+        <Home />
+      </Route>
       {/* switchのなかでrouteにあったものを表示していく */}
       <Route
         path="/pageOne"
@@ -39,8 +43,8 @@ export const Router = () => {
           </Switch>
         )}
       />
-      <Route path="/">
-        <Home />
+      <Route path="*">
+        <Page404 />
       </Route>
     </Switch>
   );
